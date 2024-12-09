@@ -12,15 +12,22 @@
       <%= form.text_area :description, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
     </div>
 
+    <%# <div class="mb-6"> %>
+      <%# <%= form.label :cover_url, class: "block font-semibold text-lg mb-2 text-gray-800" %> 
+      <%# <%= form.text_field :cover_url, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    <%# </div>  %>
+
     <div class="mb-6">
-      <%= form.label :cover_url, class: "block font-semibold text-lg mb-2 text-gray-800" %>
-      <%= form.text_field :cover_url, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+      <%= form.label :cover, class: "block font-semibold text-lg mb-2 text-gray-800" %>
+      <%= form.file_field :attachment, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
     </div>
+
 
     <div class="flex justify-center">
       <%= form.submit "Create Article", class: "bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600" %>
     </div>
   <% end %>
+
    <div class="mt-6 text-center">
     <%= link_to "Back to Articles", admin_articles_path, class: "text-blue-500 hover:underline" %>
   </div>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :videos
+  get "home/index"
   # Admin routes for articles
   namespace :admin do
+    resources :videos
     resources :articles
   end
 
