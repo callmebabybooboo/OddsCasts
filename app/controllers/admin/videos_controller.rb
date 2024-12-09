@@ -3,7 +3,7 @@ class Admin::VideosController < ApplicationController
 
   # GET /admin/videos or /admin/videos.json
   def index
-    @videos = Video.all
+    @admin_videos = Video.all
   end
 
   # GET /admin/videos/1 or /admin/videos/1.json
@@ -60,7 +60,7 @@ class Admin::VideosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
-      @video = Admin::Video.find(params.expect(:id))
+      @video = Video.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
