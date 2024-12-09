@@ -1,0 +1,6 @@
+<h1 class="text-4xl font-bold mb-4 text-center"><%= @article.title %></h1>
+<p class="text-lg text-gray-700 mb-6"><%= @article.description %></p>
+<div class="flex justify-center mb-6">
+  <img src="<%= @article.image_url %>" alt="<%= @article.title %>" class="w-full max-w-xl h-72 object-cover rounded-md shadow-md">
+</div>
+<%= link_to "Back to Articles", articles_path, class: "text-blue-500 hover:underline" %>

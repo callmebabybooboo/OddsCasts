@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: callmebaby
+  password: 1234
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: article_development
+
+test:
+  <<: *default
+  database: article_test
+
+production:
+  <<: *default
+  database: article_production
