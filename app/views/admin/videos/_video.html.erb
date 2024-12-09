@@ -1,2 +1,6 @@
-<div id="<%= dom_id video %>">
+<div id="<%= dom_id(video) %>">
+  <video width="640" height="360" controls>
+    <source src="<%= video.url %>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>

@@ -1,8 +1,36 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing video</h1>
+<!-- admin/videos/edit.html.erb -->
+<div class="container mx-auto px-6 py-12">
+  <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">Edit Video</h1>
 
-  <%= render "form", admin_video: @admin_video %>
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <%= form_with(model: @admin_video, local: true, class: "space-y-6") do |form| %>
+      
+      <% if @admin_video.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-600 px-4 py-3 rounded-lg mb-6">
+          <h2 class="text-lg font-semibold">The following errors prevented the video from being updated:</h2>
+          <ul class="list-disc pl-6">
+            <% @admin_video.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <%= link_to "Show this video", @admin_video, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to videos", admin_videos_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="form-group">
+        <%= form.label :title, class: "block text-gray-700 font-medium mb-2" %>
+        <%= form.text_field :title, class: "w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :url, class: "block text-gray-700 font-medium mb-2" %>
+        <%= form.text_field :url, class: "w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit "Update Video", class: "w-full py-3 bg-yellow-500 text-white rounded-lg shadow-lg hover:bg-yellow-600 font-medium transform transition-all duration-200 hover:scale-105" %>
+      </div>
+    <% end %>
+
+    <%= link_to "Back to Videos", admin_videos_path, class: "mt-6 inline-block bg-gray-300 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-400 font-medium transform transition-all duration-200 hover:scale-105" %>
+  </div>
 </div>

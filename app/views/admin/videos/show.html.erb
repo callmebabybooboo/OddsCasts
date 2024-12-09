@@ -1,15 +1,31 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<!-- admin/videos/show.html.erb -->
+<div class="container mx-auto px-6 py-12">
+  <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">Video Details</h1>
+
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-4">Title: <%= @admin_video.title %></h2>
+    
+    <!-- YouTube video embedding -->
+    <% if @admin_video.url.present? %>
+      <% if @admin_video.url.include?("youtube.com") %>
+        <div class="mb-6">
+          <!-- Extract the video ID and embed the video -->
+          <iframe width="100%" height="315" 
+                  src="https://www.youtube.com/embed/<%= @admin_video.url.split('v=')[1] %>" 
+                  frameborder="0" allow="autoplay; fullscreen" allowfullscreen 
+                  class="rounded-lg shadow-lg">
+          </iframe>
+        </div>
+      <% else %>
+        <p class="text-gray-600">Unsupported video URL</p>
+      <% end %>
+    <% else %>
+      <p class="text-gray-600">No video available.</p>
     <% end %>
 
-    <%= render @admin_video %>
-
-    <%= link_to "Edit this video", edit_admin_video_path(@admin_video), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to videos", admin_videos_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this video", @admin_video, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div class="flex justify-between">
+      <%= link_to "Edit Video", edit_admin_video_path(@admin_video), class: "inline-block bg-yellow-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-yellow-600 font-medium transform transition-all duration-200 hover:scale-105" %>
+      <%= link_to "Back to Videos", admin_videos_path, class: "inline-block bg-gray-300 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-400 font-medium transform transition-all duration-200 hover:scale-105" %>
     </div>
   </div>
 </div>

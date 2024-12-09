@@ -45,9 +45,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_09_080134) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "cover_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cover_url"
   end
 
   create_table "videos", force: :cascade do |t|
