@@ -1,10 +1,9 @@
-<!-- admin/videos/new.html.erb -->
 <div class="container mx-auto px-6 py-12">
   <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">Create New Video</h1>
 
   <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
     <%= form_with(model: @admin_video, local: true, class: "space-y-6") do |form| %>
-      
+
       <% if @admin_video.errors.any? %>
         <div id="error_explanation" class="bg-red-50 text-red-600 px-4 py-3 rounded-lg mb-6">
           <h2 class="text-lg font-semibold">The following errors prevented the video from being saved:</h2>

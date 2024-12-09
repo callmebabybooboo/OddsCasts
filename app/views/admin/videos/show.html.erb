@@ -1,10 +1,9 @@
-<!-- admin/videos/show.html.erb -->
 <div class="container mx-auto px-6 py-12">
   <h1 class="text-4xl font-extrabold text-center text-indigo-600 mb-8">Video Details</h1>
 
   <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
     <h2 class="text-3xl font-semibold text-gray-800 mb-4">Title: <%= @admin_video.title %></h2>
-    
+
     <!-- YouTube video embedding -->
     <% if @admin_video.url.present? %>
       <% if @admin_video.url.include?("youtube.com") %>
