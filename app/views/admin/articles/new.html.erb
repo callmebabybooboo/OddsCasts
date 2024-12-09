@@ -1,0 +1,27 @@
+<div class="container mx-auto p-8">
+  <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">New Article</h1>
+
+  <%= form_with model: @article, url: admin_articles_path, local: true, class: "max-w-lg mx-auto bg-white shadow-lg p-6 rounded-md" do |form| %>
+    <div class="mb-6">
+      <%= form.label :title, class: "block font-semibold text-lg mb-2 text-gray-800" %>
+      <%= form.text_field :title, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :description, class: "block font-semibold text-lg mb-2 text-gray-800" %>
+      <%= form.text_area :description, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label :cover_url, class: "block font-semibold text-lg mb-2 text-gray-800" %>
+      <%= form.text_field :cover_url, class: "w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+    </div>
+
+    <div class="flex justify-center">
+      <%= form.submit "Create Article", class: "bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600" %>
+    </div>
+  <% end %>
+   <div class="mt-6 text-center">
+    <%= link_to "Back to Articles", admin_articles_path, class: "text-blue-500 hover:underline" %>
+  </div>
+</div>
